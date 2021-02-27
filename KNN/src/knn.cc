@@ -67,7 +67,27 @@ void knn::set_k(int val) {
     k = val;
 }
 
-int knn::predict();
+int knn::predict() {
+    std::map<uint8_t, int> class_freq;
+    for (int i = 0; i < neighbours->size(); ++i) {
+        if (class_freq.find(neigbours->at(i)->get_label) == class_freq.end()) {
+            class_freq[neighbours->at(i)->get_label()] = 1;
+        } else {
+            class_freq[neighbours->at(i)->get_label()]++;
+        }
+    }
+
+    int best = 0;
+    int max = 0;
+    for (auto kv : class_freq) {
+        if (kv.second > max) {
+            max = kv.second;
+            best = kv.first;
+        }
+    }
+    delete nieghbours;
+    return best;
+}
 
 double knn::calculate_distance(data *query_point, data *input) {
     double distance = 0.0;
@@ -85,6 +105,19 @@ double knn::calculate_distance(data *query_point, data *input) {
     return distance;
 }
 
-double knn::validate_performance();
+double knn::validate_performance() {
+    double current_performance = 0;
+    int count = 0;
+    int data_index = 0;
+    for (data *query_point : *validation_data) {
+        find_knearest(query_point);
+        int prediction = predict();
+        if(prediction == query_point->get_label()) {
+            count++;
+        }
+        data_index++;
+        printf("Current performance = %.3f %%\n", ((double)count*100.0)/((double)data_index));
+    }
+}
 
 double knn::test_performance();

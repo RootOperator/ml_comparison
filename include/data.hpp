@@ -1,5 +1,4 @@
-#ifndef __DATA_H
-#define __DATA_H
+#pragma once
 
 #include <vector>
 #include "stdint.h"
@@ -26,6 +25,3 @@ public:
 
     std::vector<uint8_t> * get_feature_vector();
 };
-
-
-#endif

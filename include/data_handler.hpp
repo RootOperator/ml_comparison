@@ -1,5 +1,4 @@
-#ifndef __DATA_HANDLER_H
-#define __DATA_HANDLER_H
+#pragma once
 
 #include <fstream>
 #include "stdint.h"
@@ -39,5 +38,3 @@ public:
     std::vector<data * > * get_test_data();
     std::vector<data * > * get_validation_data();
 };
-
-#endif

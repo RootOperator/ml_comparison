@@ -100,9 +100,9 @@ double knn::calculate_distance(data *query_point, data *input) {
         distance += pow(query_point->get_feature_vector()->at(i) - input->get_feature_vector()->at(i), 2);
     }
     distance = sqrt(distance);
-    return distance;
 #elif defined MANHATTEN
 #endif
+    return distance;
 }
 
 double knn::validate_performance() {

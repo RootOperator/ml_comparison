@@ -1,7 +1,7 @@
 CC=g++
 INCLUDE_DIR := $(ML_ROOT)/include
 SRC := $(ML_ROOT)/src
-CFLAGS := -std=c++20
+CFLAGS := -shared -std=c++20
 LIB_DATA := libdata.o
 
 

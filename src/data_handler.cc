@@ -144,11 +144,12 @@ std::vector<data *> *data_handler::get_validation_data() {
     return validation_data;
 }
 
-
-int main() {
-    data_handler *dh = new data_handler();
-    dh->read_feature_vector("./data/train-images-idx3-ubyte");
-    dh->read_feature_labels("./data/train-labels-idx1-ubyte");
-    dh->split_data();
-    dh->count_classes();
-}
+// 4710
+//int main() {
+//    data_handler *dh = new data_handler();
+//    dh->read_feature_vector("./data/train-images-idx3-ubyte");
+//    dh->read_feature_labels("./data/train-labels-idx1-ubyte");
+//    dh->split_data();
+//    dh->count_classes();
+//    return 0;
+//}
